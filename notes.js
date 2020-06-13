@@ -29,17 +29,15 @@ const addNote = (title,body) => {
     const dups=notes.filter((n)=> n.title===title)
     if(dups.length===0){
         console.log(chalk.inverse.green('Note added!'));
+        notes.push({
+            title:title,
+            body:body,
+        })
+        savenote(notes)
     }
     else{
         console.log(chalk.inverse.red('Note already there!'));
-        
     }
-    
-    notes.push({
-        title:title,
-        body:body,
-    })
-    savenote(notes)
 }
 
 //save
